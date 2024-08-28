@@ -29,12 +29,13 @@ img {
     font-weight: 700;
     margin-bottom: 16px;
     font-family: 'Playfair Display';
+    color: var(--text-primary, #0c0d0e);
 }
 
 .card-description {
     font-size: 18px;
     font-weight: 400;
-    color: #828282;
+    color: var(--text-secondary, #828282);
     font-family: 'Nunito';
 }
 
@@ -53,9 +54,10 @@ img {
     font-weight: 600;
     padding: 8px 24px;
     border-radius: 8px;
-    background-color: #fdc435;
+    background-color: var(--brand-yellow, #fdc435);
     border-width: 0px;
     box-shadow: 0 4px 6px rgba(234, 193, 193, 0.1);
+    color: var(--text-primary, #0c0d0e);
 }
 
 .card-button:hover {

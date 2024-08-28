@@ -6,10 +6,21 @@ import pic3 from './assets/bgp3.jpg';
 // homepage details
 const name = "Kavindu Salinda";
 
+// use a 1:1 image aspect ratio for best results
+
+const socials = {
+    linkedInUrl: "https://www.linkedin.com/in/kavindu-salinda/",
+    githubUrl: "",
+    twitterUrl: "",
+    email: "",
+    instagram: "",
+}
+
 const details = {
     profession: "Software Developer",
     title: `Hello, I'm ${name}`,
     subHeadline: "Short text with details about you, what you do or your professional career. You can add more information on the about page.",
+    linkedInUrl: socials.linkedInUrl,
 }
 
 // project details
@@ -35,5 +46,5 @@ const projects = [
 ];
 
 
-export { name, details, projects };
+export { name, details, projects,socials };
 

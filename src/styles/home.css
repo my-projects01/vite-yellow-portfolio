@@ -1,7 +1,7 @@
 /* Main Container Styling */
 main {
   width: 100%; /* Full width by default */
-  max-width: 1440px; /* Maximum width of the container */
+  max-width: 1600px; /* Maximum width of the container */
   margin: 0 auto; /* Center the container horizontally */
   padding: 24px; /* Default padding around the container */
   overflow-y: visible;
@@ -20,6 +20,7 @@ section>h2 {
   font-family: 'Playfair Display';
   border-bottom: 2px solid var(--bg-line,#fdc435);
   border-width: 70%;
+  color: var(--text-primary, #0c0d0e);
   /* margin: 0; */
 }
 
@@ -66,7 +67,7 @@ section[id="projects"] {
     );
 }
 
-/* Details Styling */
+/* MyDetails Styling */
 .intro {
   display: flex;
   max-width: 486px;
@@ -86,7 +87,7 @@ section[id="projects"] {
   margin-top: 12px;
   width: 100%;
   flex-direction: column;
-  color: var(--font-high-emphasis, #25282b);
+  /* color: var(--font-high-emphasis, #25282b); */
   justify-content: start;
 }
 
@@ -96,12 +97,13 @@ section[id="projects"] {
   font-weight: 700;
   line-height: 77px;
   font-family:'Playfair Display';
+  color: var(--text-primary, #0c0d0e);
 }
 
 .subHeadline {
   width: 100%;
   margin-top: 32px;
-  color: var(--font-medium-emphasis, #828282);
+  color: var(--text-secondary, #828282);
   font: 400 24px/36px Nunito;
 }
 
@@ -120,14 +122,42 @@ section[id="projects"] {
   border-radius: 8px;
   padding: 8px 24px;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .buttonPrimary {
   background: var(--brand-yellow, #fdc435);
+  text-decoration: none;
+  color: #000
 }
 
 .buttonSecondary {
   border: 2px solid var(--bg-line, #25282b);
+}
+
+/* footer styles */
+.footerIcons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icons {
+  display: flex;
+  align-items: start;
+  gap: 24px;
+  justify-content: start;
+}
+.img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 48px;
+}
+.copyRight {
+  color: var(--font-medium-emphasis, #828282);
+  margin-top: 32px;
+  font: 400 16px Nunito, sans-serif;
 }
 
 /* Responsive behavior for larger screens (e.g., tablets, desktops) */

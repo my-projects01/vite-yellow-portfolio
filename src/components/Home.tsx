@@ -1,9 +1,10 @@
 import {lazy ,Suspense} from 'react'
 import "../styles/home.css";
-import { details, projects } from "../details";
+import { details, projects, socials } from "../details";
 import profileMask from '../assets/profileMask.svg';
 import ProjectCard from "./ProjectCard";
 import { Projects } from "../types/details";
+import Footer from './Footer';
 
 // Lazy load components that are not immediately necessary
 const MyDetails = lazy(() => import('./MyDetails'));
@@ -31,6 +32,7 @@ const Home = () => {
             <AboutSection />
 
             <ContactSection />
+            <Footer socials={socials}/>
         </main>
     )
 }

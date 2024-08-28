@@ -2,6 +2,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --text-primary: rgb(0, 0, 19);
+  --text-secondary: rgb(172, 172, 172);
   --bg-line: #25282b;
   --brand-yellow: #fdc435;
 }

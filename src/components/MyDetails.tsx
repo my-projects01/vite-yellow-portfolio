@@ -11,8 +11,8 @@ const MyDetails = ({details}: {details :Details}) => {
                     {details.subHeadline}
                 </div>
                 <div className="buttons">
-                    <div className="button buttonPrimary">Projects</div>
-                    <div className="button buttonSecondary">LinkedIn</div>
+                    <a className="button buttonPrimary" href="#projects" >Projects</a>
+                    <div className="button buttonSecondary" onClick={()=> window.location.href = details.linkedInUrl?? ''}>LinkedIn</div>
                 </div>
             </div>
         </div>

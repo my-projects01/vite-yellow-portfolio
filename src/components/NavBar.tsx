@@ -5,7 +5,7 @@ import "../styles/NavBar.css";
 const NavBar = () => {
   return (
     <header className="header-container">
-        <div>{name}</div>
+        <div className="nav-name">{name}</div>
         <div className="menuIcon"><strong></strong></div>
         <nav>
             <ul>
