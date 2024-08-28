@@ -1,0 +1,226 @@
+/* Main Container Styling */
+main {
+  width: 100%; /* Full width by default */
+  max-width: 1440px; /* Maximum width of the container */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 24px; /* Default padding around the container */
+  overflow-y: visible;
+  overflow-x: clip;
+}
+
+/* Section Styling */
+section[id] {
+  position: relative;
+  display: flex;
+}
+
+section>h2 {
+  font-size: 48px;
+  font-weight: 700;
+  font-family: 'Playfair Display';
+  border-bottom: 2px solid var(--bg-line,#fdc435);
+  border-width: 70%;
+  /* margin: 0; */
+}
+
+section[id="home"] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+section[id="projects"] {
+  font-family: 'Playfair Display';
+  font-size: 44px;
+  font-weight: 700;
+  gap: 64px;
+  margin: 64px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Profile Picture Styling */
+.profile-picture {
+  width: 600px;
+  height: 600px;
+  background-size: cover;
+  object-fit: cover;
+  position: relative;
+  z-index: 3;
+  /* Uncomment the following line if you want to use a background image */
+}
+
+/* Profile Mask Styling */
+.profile-mask {
+  position: absolute;
+  top: -500px;
+  right: -350px;
+  z-index: 1;
+  width: 950px;
+  height: 950px;
+  clip-path: polygon(
+        0% 0%,   /* Top-left corner */
+        100% 0%, /* Top-right corner */
+        100% 100%, /* Bottom-right corner */
+        0% 100%  /* Bottom-left corner */
+    );
+}
+
+/* Details Styling */
+.intro {
+  display: flex;
+  max-width: 486px;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: start;
+}
+
+.Designer {
+  color: var(--brand-yellow, #fdc435);
+  text-transform: uppercase;
+  font: 700 20px Nunito, sans-serif;
+}
+
+.content {
+  display: flex;
+  margin-top: 12px;
+  width: 100%;
+  flex-direction: column;
+  color: var(--font-high-emphasis, #25282b);
+  justify-content: start;
+}
+
+.title {
+  width: 100%;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 77px;
+  font-family:'Playfair Display';
+}
+
+.subHeadline {
+  width: 100%;
+  margin-top: 32px;
+  color: var(--font-medium-emphasis, #828282);
+  font: 400 24px/36px Nunito;
+}
+
+.buttons {
+  align-self: start;
+  display: flex;
+  margin-top: 32px;
+  align-items: start;
+  gap: 12px;
+  white-space: nowrap;
+  justify-content: start;
+  font: 500 18px Roboto, sans-serif;
+}
+
+.button {
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-weight: 600;
+}
+
+.buttonPrimary {
+  background: var(--brand-yellow, #fdc435);
+}
+
+.buttonSecondary {
+  border: 2px solid var(--bg-line, #25282b);
+}
+
+/* Responsive behavior for larger screens (e.g., tablets, desktops) */
+@media screen and (min-width: 768px) {
+  main {
+    padding: 48px; /* Increase padding on larger screens */
+  }
+
+  .profile-picture {
+    width: 400px; /* Set width for larger screens */
+    height: 400px; /* Set height for larger screens */
+  }
+
+  .profile-mask {
+    right: -450px;
+  }
+}
+
+/* Responsive behavior for extra large screens */
+@media screen and (min-width: 1200px) {
+  main {
+    padding: 64px; /* Further increase padding on extra large screens */
+  }
+
+  .profile-picture {
+    width: 600px;
+    height: 600px;
+  }  
+
+  .profile-mask {
+    width: 1150px;
+    height: 1150px;
+  }
+  .title {
+    font-size: 64px;
+}
+}
+
+/* Responsive behavior for smaller screens */
+@media screen and (max-width: 767px) {
+  main {
+    padding:16px; /* Reduce padding on small screens */
+  }
+
+  section[id="home"] {
+    flex-direction: column;
+    height: inherit;
+  }
+
+  .profile-picture {
+    width: 300px;
+    height: 300px;
+  }
+
+  .profile-mask {
+    display: none;
+  }
+
+  .Designer {
+    max-width: 100%;
+  }
+
+  .content {
+    max-width: 100%;
+  }
+
+  .title {
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 53px;
+  }
+
+  .subHeadline {
+    max-width: 100%;
+    margin-top: 10px;
+    font: 14px/20px Nunito;
+  }
+
+  .buttons {
+    white-space: initial;
+  }
+
+  .buttonPrimary {
+    white-space: initial;
+    padding: 5px 20px;
+  }
+
+  .buttonSecondary {
+    white-space: initial;
+    padding: 5px 20px;
+  }
+  .home-picture-container>* {
+    display: none;
+  }
+}
+

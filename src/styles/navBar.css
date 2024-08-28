@@ -1,0 +1,70 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  top: 0;
+  padding: 10px 48px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  font-family: 'Comfortaa', cursive;
+  color: #2f2f2f;
+}
+
+.menuIcon {
+  background-color: blue;
+}
+
+ul li {
+  list-style: none;
+  display: inline;
+  margin-right: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+ul li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #f1d535;
+}
+
+/* Responsive behavior for larger screens (e.g., tablets, desktops) */
+@media (min-width: 768px) {
+  .header-container {
+    padding: 20px 48px; /* Increase padding on larger screens */
+  }
+
+  ul li {
+    margin-right: 40px;
+  }
+
+  .menuIcon {
+    display: none;
+  }
+}
+
+/* Responsive behavior for extra large screens */
+@media (min-width: 1200px) {
+    .header-container {
+      padding: 20px 60px; /* Further increase padding on extra large screens */
+    }
+    
+    ul li {
+      margin-right: 60px;
+    }
+  }
+  
+/* Example for adjusting container for smaller screens (optional) */
+@media (max-width: 767px) {
+  .header-container {
+    padding: 20px; /* Reduce padding on small screens */
+  }
+
+  nav {
+    display: none;
+  }
+}
