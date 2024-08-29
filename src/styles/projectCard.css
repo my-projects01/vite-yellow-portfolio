@@ -39,14 +39,6 @@ img {
     font-family: 'Nunito';
 }
 
-/* .card-button {
-    font-family: 'Roboto';
-    font-size: 18px;
-    font-weight: 600;
-    padding: 8px 24px;
-    border-radius: 24px;
-} */
-
 .card-button {
     box-sizing: border-box;
     font-family: 'Roboto';
@@ -66,3 +58,4 @@ img {
     cursor: pointer;
 }
 
+/* todo media queries */

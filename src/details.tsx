@@ -14,6 +14,7 @@ const socials = {
     twitterUrl: "",
     email: "",
     instagram: "",
+    resumeUrl: "", // Replace with a relevant URL
 }
 
 const details = {
@@ -21,6 +22,7 @@ const details = {
     title: `Hello, I'm ${name}`,
     subHeadline: "Short text with details about you, what you do or your professional career. You can add more information on the about page.",
     linkedInUrl: socials.linkedInUrl,
+    resumeUrl: socials.resumeUrl, // Replace with a relevant URL
 }
 
 // project details

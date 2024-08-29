@@ -1,21 +1,18 @@
 import "../styles/home.css";
 import { Details } from "../types/details";
+import DetailCard from "./DetailCard";
 
 const MyDetails = ({details}: {details :Details}) => {
     return (
-        <div className="intro">
-            <div className="Designer">{details.profession}</div>
-            <div className="content">
-                <div className="title">{details.title}</div>
-                <div className="subHeadline">
-                    {details.subHeadline}
-                </div>
-                <div className="buttons">
-                    <a className="button buttonPrimary" href="#projects" >Projects</a>
-                    <div className="button buttonSecondary" onClick={()=> window.location.href = details.linkedInUrl?? ''}>LinkedIn</div>
-                </div>
-            </div>
-        </div>
+        <DetailCard 
+            profession={details.profession}
+            title={details.title}
+            subHeadline={details.subHeadline}
+            ButtonTitle1="LinkedIn"
+            buttonUrl1={details.linkedInUrl}
+            ButtonTitle2="Projects"
+            buttonUrl2="#projects"
+        />
     );
 }
 

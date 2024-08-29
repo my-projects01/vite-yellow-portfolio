@@ -1,25 +1,43 @@
 import "../styles/projectCard.css";
+import DetailCard from "./DetailCard";
 
 interface ProjectCardProps {
-    name: string ;
+    name: string;
     description?: string;
     image?: string;
     rl?: number;
     url: string;
+    bgColor?: string;
 }
 
-const ProjectCard = (props :ProjectCardProps) => {
-    if (props.rl === undefined) props.rl = 0;
-    const toRedirect = (url:string) => url? window.location.href = url : null;
+const ProjectCard = ({
+    name,
+    description = '', // Default to an empty string if not provided
+    image = '',       // Default to an empty string if not provided
+    rl = 0,           // Default value for rl
+    url,
+    bgColor,
+}: ProjectCardProps
+) => {
+
+    const isRowReversed = rl % 2 !== 0;
     return (
-        <div className='card-container' style={{ flexDirection:(props?.rl % 2 ==0)? 'row':'row-reverse'}}>
-            <div className="card-left">
-                <h1 className='card-name'>{props.name}</h1>
-                <p className='card-description'>{props.description}</p>
-                <button className='card-button' onClick={()=>{toRedirect(props.url)}} >View Project</button>
+        <div
+            className='card-container'
+            style={{ flexDirection: isRowReversed ? 'row-reverse' : 'row' }}
+        >
+            <div className="card-left" style={{ backgroundColor: `${bgColor}` }}>
+                <DetailCard
+                    title={name}
+                    subHeadline={description}
+                    ButtonTitle1='View Project'
+                    buttonUrl1={url}
+                    variant="secondary"
+                />
             </div>
+
             <figure className="card-right">
-                <img src={props.image} alt="project" />
+                <img src={image} alt={`${name} project`} />
             </figure>
         </div>
     )

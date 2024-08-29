@@ -14,11 +14,11 @@ section[id] {
   display: flex;
 }
 
-section>h2 {
+section > h2 {
   font-size: 48px;
   font-weight: 700;
-  font-family: 'Playfair Display';
-  border-bottom: 2px solid var(--bg-line,#fdc435);
+  font-family: "Playfair Display";
+  border-bottom: 2px solid var(--bg-line, #fdc435);
   border-width: 70%;
   color: var(--text-primary, #0c0d0e);
   /* margin: 0; */
@@ -30,13 +30,21 @@ section[id="home"] {
 }
 
 section[id="projects"] {
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-size: 44px;
   font-weight: 700;
   gap: 64px;
   margin: 64px 0;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+section[id="about"] {
+  margin: 128px 0;
+  flex-direction: row;
+  justify-content: center;
+  gap: 64px;
   align-items: center;
 }
 
@@ -60,11 +68,11 @@ section[id="projects"] {
   width: 950px;
   height: 950px;
   clip-path: polygon(
-        0% 0%,   /* Top-left corner */
-        100% 0%, /* Top-right corner */
-        100% 100%, /* Bottom-right corner */
-        0% 100%  /* Bottom-left corner */
-    );
+    0% 0%,
+    /* Top-left corner */ 100% 0%,
+    /* Top-right corner */ 100% 100%,
+    /* Bottom-right corner */ 0% 100% /* Bottom-left corner */
+  );
 }
 
 /* MyDetails Styling */
@@ -95,9 +103,12 @@ section[id="projects"] {
   width: 100%;
   font-size: 54px;
   font-weight: 700;
-  line-height: 77px;
-  font-family:'Playfair Display';
+  font-family: "Playfair Display";
   color: var(--text-primary, #0c0d0e);
+}
+
+.second-title {
+  font-size: 40px;
 }
 
 .subHeadline {
@@ -107,20 +118,25 @@ section[id="projects"] {
   font: 400 24px/36px Nunito;
 }
 
+.second-subHeadline {
+  font-size: 18px;
+  line-height: 28px;
+}
+
 .buttons {
   align-self: start;
   display: flex;
   margin-top: 32px;
   align-items: start;
   gap: 12px;
-  white-space: nowrap;
   justify-content: start;
-  font: 500 18px Roboto, sans-serif;
 }
 
 .button {
   border-radius: 8px;
   padding: 8px 24px;
+  font-size: 18px;
+  font-family: "roboto";
   font-weight: 600;
   cursor: pointer;
 }
@@ -128,13 +144,20 @@ section[id="projects"] {
 .buttonPrimary {
   background: var(--brand-yellow, #fdc435);
   text-decoration: none;
-  color: #000
+  color: #000;
 }
 
 .buttonSecondary {
   border: 2px solid var(--bg-line, #25282b);
 }
 
+.about-figure {
+  overflow: hidden;
+  background-color: var(--brand-yellow, #fdc435);
+  width: 500px;
+  height: 500px;
+  border-radius: 100%;
+}
 /* footer styles */
 .footerIcons {
   display: flex;
@@ -185,7 +208,7 @@ section[id="projects"] {
   .profile-picture {
     width: 600px;
     height: 600px;
-  }  
+  }
 
   .profile-mask {
     width: 1150px;
@@ -193,13 +216,16 @@ section[id="projects"] {
   }
   .title {
     font-size: 64px;
-}
+  }
+  .second-title {
+    font-size: 40px;
+  }
 }
 
 /* Responsive behavior for smaller screens */
 @media screen and (max-width: 767px) {
   main {
-    padding:16px; /* Reduce padding on small screens */
+    padding: 16px; /* Reduce padding on small screens */
   }
 
   section[id="home"] {
@@ -249,8 +275,7 @@ section[id="projects"] {
     white-space: initial;
     padding: 5px 20px;
   }
-  .home-picture-container>* {
+  .home-picture-container > * {
     display: none;
   }
 }
-

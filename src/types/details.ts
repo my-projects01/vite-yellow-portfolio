@@ -3,10 +3,11 @@ type URL = string;
 
 // Interface for personal details
 export interface Details {
-    profession: string;
-    title: string;
-    subHeadline: string;
+    profession?: string;
+    title?: string;
+    subHeadline?: string;
     linkedInUrl?: URL;
+    resumeUrl?: URL;
 }
 
 // Type for individual project details
@@ -24,6 +25,7 @@ export interface Socials {
     githubUrl?: URL;
     twitterUrl?: URL;
     email?: string;
+    resumeUrl?: URL;
 }
 
 export type Projects = Project[];
