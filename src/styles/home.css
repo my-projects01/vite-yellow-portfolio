@@ -159,6 +159,23 @@ section[id="about"] {
   border-radius: 100%;
 }
 /* footer styles */
+.footer-container {
+  padding: 32px;
+  top: 1000px;
+  width: 100%;
+}
+
+.footer-wave {
+  /* background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1900 369" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(47, 73, 94, 1)" d="M 0 290 C 158.4 290 369.6 145 528 145 L 528 145 L 528 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(47, 73, 94, 1)" d="M 527 145 C 679.7 145 883.3 206 1036 206 L 1036 206 L 1036 0 L 527 0 Z" stroke-width="0"></path> <path fill="rgba(47, 73, 94, 1)" d="M 1035 206 C 1294.5 206 1640.5 0 1900 0 L 1900 0 L 1900 0 L 1035 0 Z" stroke-width="0"></path></svg>');
+  background-size: cover;
+  background-repeat: no-repeat; */
+  width: 100%;
+}
+
+svg > path {
+  fill: var(--brand-yellow, #fdc435);
+}
+
 .footerIcons {
   display: flex;
   flex-direction: column;

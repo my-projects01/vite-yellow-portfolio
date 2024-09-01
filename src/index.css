@@ -4,6 +4,7 @@
   font-weight: 400;
   --text-primary: rgb(0, 0, 19);
   --text-secondary: rgb(172, 172, 172);
+  --background-color: #f5f5f5;
   --bg-line: #25282b;
   --brand-yellow: #fdc435;
 }

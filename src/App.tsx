@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'; 
+import { Suspense, lazy } from 'react';
 import { socials } from './details';
 import './App.css';
 
@@ -12,7 +12,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <NavBar />
         <Home />
-        <Footer socials={socials}/>
+        <Footer socials={socials} />
       </Suspense>
     </div>
   );
