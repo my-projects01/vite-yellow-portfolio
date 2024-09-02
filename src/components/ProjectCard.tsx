@@ -1,4 +1,4 @@
-import "../styles/projectCard.css";
+import "../styles/card.css";
 import DetailCard from "./DetailCard";
 
 interface ProjectCardProps {
@@ -26,11 +26,11 @@ const ProjectCard = ({
             className='card-container'
             style={{ flexDirection: isRowReversed ? 'row-reverse' : 'row' }}
         >
-            <div className="card-left" style={{ backgroundColor: `${bgColor}` }}>
+            <div className="card-left" style={{ backgroundColor: `${bgColor}`, backgroundImage: `url(${image})` }}>
                 <DetailCard
                     title={name}
                     subHeadline={description}
-                    ButtonTitle1='View Project'
+                    buttonTitle1='View Project'
                     buttonUrl1={url}
                     variant="secondary"
                 />

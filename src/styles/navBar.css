@@ -29,12 +29,18 @@ ul li {
 ul li a {
   text-decoration: none;
   color: var(--text-primary, #0c0d0e);
+  cursor: pointer;
 }
 
 ul li a:hover {
   color: #ffffff;
-  text-shadow: 0 0 10px #f1d535;
+  text-shadow: 0 0 10px var(--brand-color, #fdc435);
 }
+
+.navListText:hover {
+  color: var(--brand-color, #fdc435);
+}
+
 
 /* Responsive behavior for larger screens (e.g., tablets, desktops) */
 @media (min-width: 768px) {

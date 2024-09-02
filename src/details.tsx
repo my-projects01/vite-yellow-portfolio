@@ -2,13 +2,14 @@
 import pic1 from './assets/bgp1.jpg';
 import pic2 from './assets/bgp2.jpeg';
 import pic3 from './assets/bgp3.jpg';
+import { AboutData, Details, Projects, SocialMediaLinks } from './types/details';
 
 // homepage details
-const name = "Kavindu Salinda";
+const name : string |null |undefined = "Kavindu Salinda";
 
 // use a 1:1 image aspect ratio for best results
 
-const socials = {
+const socials :SocialMediaLinks = {
     linkedInUrl: "https://www.linkedin.com/in/kavindu-salinda/",
     githubUrl: "",
     twitterUrl: "",
@@ -17,7 +18,7 @@ const socials = {
     resumeUrl: "", // Replace with a relevant URL
 }
 
-const details = {
+const details: Details = {
     profession: "Software Developer",
     title: `Hello, I'm ${name}`,
     subHeadline: "Short text with details about you, what you do or your professional career. You can add more information on the about page.",
@@ -26,7 +27,7 @@ const details = {
 }
 
 // project details
-const projects = [
+const projects:Projects = [
     {
         name: "Task Manager App",
         description: "A full-stack MERN application that allows users to manage their daily tasks with features like task creation, updating, filtering by category, and setting due dates. Includes user authentication with JWT and a responsive UI built with Tailwind CSS.",
@@ -47,6 +48,12 @@ const projects = [
     }
 ];
 
+const aboutData: AboutData = {
+    name: details.title,
+    title: "About Me",
+    subHeadline: "I'm a software engineer with a passion for web development.Short text with details about you, what you do or your professional career. You can add more information on the about page.",
+    resumeUrl: details.resumeUrl,
+}
 
-export { name, details, projects,socials };
+export { name, details, projects,socials ,aboutData };
 

@@ -1,9 +1,7 @@
-import * as React from "react";
 import "../styles/home.css";
-import { Socials } from "../types/details";
+import { SocialMediaLinks } from "../types/details";
 
-
-function Footer({ socials }: { socials: Socials }) {
+function Footer({ socials }: { socials: SocialMediaLinks }) {
   const redirect = (value: string) => {
     let url = '';
     switch (value) {

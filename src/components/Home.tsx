@@ -1,43 +1,64 @@
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import "../styles/home.css";
 import { details, projects } from "../details";
-import profileMask from '../assets/profileMask.svg';
 import image from '../assets/propic1.png';
 import ProjectCard from "./ProjectCard";
 import DetailCard from './DetailCard';
-import { Projects } from "../types/details";
+import { AboutData, Details, Projects } from "../types/details";
+import { aboutData } from '../details';
 import CV from '../assets/CV.pdf';
+import { ActivePage } from '../types/Other';
+import Contact from './Contact';
 
 
 // Lazy load components that are not immediately necessary
 const MyDetails = lazy(() => import('./MyDetails'));
 
-const Home = () => {
+const Home = ({ display }: { display: ActivePage }) => {
+
     return (
         <main>
-            <section id="home">
-                <figure className="home-picture-container">
-                    <img src={profileMask} className="profile-mask" alt="profile" />
-                    <img
-                        loading="lazy"
-                        srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f9a1abf579d378a9df44ae240c388b3e39bb4c2288ec3312ff955651f9c6a630?placeholderIfAbsent=true&apiKey=6049f25a868a4fa0bc330ea5f13bb6aa"
-                        className='profile-picture'
-                    />
-                </figure>
-                <Suspense fallback={<div>Loading details...</div>}>
-                    <MyDetails details={details} />
-                </Suspense>
-
-
-            </section>
-            <ProjectsSection projects={projects} />
-
-            <AboutSection />
-
-            {/* <ContactSection /> */}
+            {display === 'home' ? <Cover image={image} details={details} /> : null}
+            {display === 'home' || display === 'projects' ? <ProjectsSection projects={projects} /> : null}
+            {display === 'home' || display === 'contact' || display === 'about' ? <AboutSection aboutData={aboutData} /> : null}
+            {display === 'contact' ? <Contact /> : null}
         </main>
     )
 }
+
+// Cover Component
+const Cover = ({image, details }: { image:string,   details: Details }) => (
+    <section id="home">
+        <figure className="home-picture-container">
+            <svg
+                className='profile-mask'
+                id="profile-bg-svg"
+                viewBox="0 0 500 500"
+                fill="none"
+            >
+                {/* <!-- Define a pattern to fill the path with the image --> */}
+                <defs>
+                    <pattern id="image-pattern" patternUnits="userSpaceOnUse" width="500" height="500">
+                        <image  href={image} x="50" y="85" width="400" height="400" preserveAspectRatio="xMidYMid slice" />
+                    </pattern>
+                </defs>
+
+                {/* <!-- Path filled with the defined pattern --> */}
+                <path d='M 50 0 C 60 75 -87 163 87 305 C 216 422 198 570 500 417 V 0 Z'
+                    className='profile-image-bg'/>
+                <path d='M 50 0 C 60 75 -87 163 87 305 C 216 422 198 570 500 417 V 0 Z'
+                    fill="url(#image-pattern)" />
+            </svg>
+        </figure>
+        <Suspense fallback={<div>Loading details...</div>}>
+            <MyDetails details={details} />
+        </Suspense>
+        <figure className="about-figure mobile-only">
+            <img src={image} alt={`profile image`} />
+        </figure>
+
+    </section>
+);
 
 // Separate the Projects section into a dedicated component
 const ProjectsSection = ({ projects }: { projects: Projects }) => (
@@ -56,39 +77,21 @@ const ProjectsSection = ({ projects }: { projects: Projects }) => (
     </section>
 );
 
-interface AboutData {
-    name: string;
-    title: string;
-    subHeadline: string;
-    resumeUrl: string;
-}
-const aboutData: AboutData = {
-    name: details.title,
-    title: "About Me",
-    subHeadline: "I'm a software engineer with a passion for web development.Short text with details about you, what you do or your professional career. You can add more information on the about page.",
-    resumeUrl: details.resumeUrl,
-}
+
 // About Section Component
-const AboutSection = () => (
+const AboutSection = ({ aboutData }: { aboutData: AboutData }) => (
     <section id="about">
         <DetailCard
             title={aboutData.title}
             subHeadline={aboutData.subHeadline}
-            ButtonTitle1="Resume"
-            buttonUrl1={CV?CV:aboutData.resumeUrl}
+            buttonTitle1="Resume"
+            buttonUrl1={CV ? CV : aboutData.resumeUrl as string}
         />
         <figure className="about-figure">
             <img src={image} alt={`${aboutData.name} about`} />
         </figure>
     </section>
 );
-
-// Contact Section Component
-// const ContactSection = () => (
-//     <section id="contact">
-//         <h2>Contact Me</h2>
-//     </section>
-// );
 
 export default Home;
 
