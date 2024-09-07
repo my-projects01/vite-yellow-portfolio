@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Suspense fallback={<div>Loading...</div>}>
         <NavBar display={display} setDisplay={setDisplay} />
-        <Home display={display} />
+        <Home display={display} setDisplay={setDisplay}/>
         <Footer socials={socials} />
       </Suspense>
     </div>

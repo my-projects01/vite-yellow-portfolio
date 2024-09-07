@@ -11,5 +11,5 @@
   width: 100%; 
   /* Maximum width to prevent it from stretching too wide */
   max-width: 1600px; /* Maximum width of the container */
-  background-color: var(--background-color);
+  background-color: var(--background-color-main, #f5f5f5);  
 }

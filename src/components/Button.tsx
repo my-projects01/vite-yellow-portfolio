@@ -10,6 +10,7 @@ const Button = ({
   title = '',          // Default title as empty string
   className = '',      // Optional className, default as empty
   type,               // not required type
+  onClick,            // not required onClick
 }: ButtonProps) => {
 
   // Function to handle redirection
@@ -34,7 +35,7 @@ const Button = ({
 
   // Render button dummy with props
   const ButtonDummy = ({ title, className }: ButtonProps) => (
-    <button type={type} className={className} onClick={() => url && toRedirect(url as string)}>
+    <button type={type} className={className} onClick={onClick? onClick: () => url && toRedirect(url as string)}>
       {title}
     </button>
   );

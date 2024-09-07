@@ -1,7 +1,7 @@
-// import React from 'react'
 import { name } from "../details";
 import "../styles/NavBar.css";
 import { ActivePage } from "../types/Other";
+import DarkModeButton from "./DarkModeButton";
 
 interface NavBarProps {
   display: ActivePage;
@@ -13,9 +13,11 @@ const NavBar = ({display, setDisplay }: NavBarProps) => {
 
   return (
     <header className="header-container">
-      <div className="nav-name">{name}</div>
+      <div className="nav-name" onClick={() => { setDisplay('home') }}>{name}</div>
       <div className="menuIcon"><strong></strong></div>
-      <nav>
+      
+      <div style={{display:"inline-flex"}}>
+        <nav>
         <ul>
           <li><a className={className} onClick={() => { setDisplay('home') }}>Home</a></li>
           <li><a className={className} onClick={() => { setDisplay('about') }}>About</a></li>
@@ -23,6 +25,8 @@ const NavBar = ({display, setDisplay }: NavBarProps) => {
           <li><a className={className} onClick={() => { setDisplay('contact') }}>Contact</a></li>
         </ul>
       </nav>
+      <DarkModeButton />
+      </div>
     </header>
   )
 }

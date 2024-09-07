@@ -50,10 +50,8 @@ function Footer({ socials }: { socials: SocialMediaLinks }) {
         </div>
       </div>
       <div className="footer-wave">
-        <svg viewBox="0 0 2000 400" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-          <path fill="#FDC435" d="M 0 290 C 158.4 290 369.6 145 528 145 L 528 145 L 528 400 L 0 400 Z" stroke-width="0"></path>
-          <path fill="#FDC435" d="M 527 145 C 679.7 145 883.3 206 1036 206 L 1036 206 L 1036 400 L 527 400 Z" stroke-width="0"></path>
-          <path fill="#FDC435" d="M 1035 206 C 1294.5 206 1640.5 0 2000 0 L 2000 0 L 2000 400 L 1035 400 Z" stroke-width="0"></path>
+        <svg viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+          <path fill="#FDC435" d="M 0 175 C 388 -32 404 204 634 115 C 800 14 846 12 1000 0 V 250 H 0 Z " stroke-width="0"></path>
         </svg>
       </div>
     </>

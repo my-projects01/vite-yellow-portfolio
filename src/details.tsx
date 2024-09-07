@@ -1,7 +1,7 @@
 //import images from 'assets' folder
 import pic1 from './assets/bgp1.jpg';
 import pic2 from './assets/bgp2.jpeg';
-import pic3 from './assets/bgp3.jpg';
+import pic3 from './assets/project1.png';
 import { AboutData, Details, Projects, SocialMediaLinks } from './types/details';
 
 // homepage details
@@ -29,7 +29,7 @@ const details: Details = {
 // project details
 const projects:Projects = [
     {
-        name: "Task Manager App",
+        name: "X-Digital",
         description: "A full-stack MERN application that allows users to manage their daily tasks with features like task creation, updating, filtering by category, and setting due dates. Includes user authentication with JWT and a responsive UI built with Tailwind CSS.",
         image: pic1, // Replace with a relevant image URL
         url: "https://kavindusalinda.github.io/at-digital/", // Replace with a relevant URL

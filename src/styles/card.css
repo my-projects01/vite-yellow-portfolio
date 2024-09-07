@@ -8,10 +8,24 @@
   font-family: "Playfair Display";
   font-size: 44px;
   font-weight: 700;
-  width: 70%;
+  width: 80%;
   display: flex;
   overflow: hidden;
   border-radius: 16px;
+  transition: box-shadow 0.3s ease-in-out 0s, transform 0.3s ease-in-out 0s;
+}
+
+.card-container:hover {
+  box-shadow: 0 10px 20px var(--box-shadow-color, #00000029);
+  transform: translateY(-10px);
+}
+
+.card-container::before {
+  content: "";
+  background-color: #c3ff006f;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .card-container > * {
@@ -20,8 +34,8 @@
 }
 
 .card-left {
-  padding: 64px;
-  background-color: #ffffff;
+  background-color: var(--background-color-secondary, #ffffff);
+  min-width: 350px;
 }
 
 .card-name {
@@ -46,7 +60,7 @@
   font-weight: 600;
   padding: 8px 24px;
   border-radius: 8px;
-  background-color: var(--brand-yellow, #fdc435);
+  background-color: var(--brand-color, #fdc435);
   border-width: 0px;
   box-shadow: 0 4px 6px rgba(234, 193, 193, 0.1);
   color: var(--text-primary, #0c0d0e);
@@ -75,20 +89,23 @@
   gap: 32px;
   width: 100%;
 }
+
 section[id="contact"] form {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 30%;
+  min-width: 400px
 }
+
 section[id="contact"] form > label {
   font-size: 16px;
   color: var(--text-primary, #0c0d0e);
 }
 
 .box {
-  background-color: #ffffff;
+  background-color: var(--background-color-secondary, #ffffff);
   border-radius: 4px;
   padding: 8px;
   border: 1px solid #e8ecf4;
@@ -105,25 +122,20 @@ section[id="contact"] form > label {
   flex-direction: column-reverse;
 }
 /* todo media queries */
-@media (min-width: 768px) {
-  .card-left {
-    background-image: none !important;
-  }
-}
-
 @media screen and (max-width: 767px) {
   .card-container {
     flex-direction: column;
     position: relative;
     width: 100%;
-    box-shadow: 2px 4px 20px 2px rgba(0, 0, 0, 0.3);
+    max-width: 550px;
+    box-shadow: 2px 4px 20px 2px var(--box-shadow-color, #00000029);
   }
 
   .card-left {
     padding: 32px;
     background-size: cover;
     background-repeat: no-repeat;
-    mask: #ffffff;
+    mask: var(--background-color-main, #f5f5f5);
   }
 
   .card-left::after {
@@ -133,7 +145,8 @@ section[id="contact"] form > label {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--background-color-secondary, #ffffff);
+    opacity: 0.8;
   }
 
   .card-left > * {
@@ -163,5 +176,26 @@ section[id="contact"] form > label {
 
   section[id="contact"] form {
     width: 100%;
+    max-width: 400px;
+    min-width: 300px;
   }
 }
+
+@media (min-width: 768px) {
+  .card-left {
+    background-image: none !important;
+    padding: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-container {
+    width: 70%;
+  }
+  .card-left {
+    padding: 64px;
+  }
+}
+
+
+

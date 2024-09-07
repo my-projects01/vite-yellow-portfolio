@@ -2,25 +2,30 @@ import React, { lazy, Suspense } from 'react'
 import "../styles/home.css";
 import { details, projects } from "../details";
 import image from '../assets/propic1.png';
-import ProjectCard from "./ProjectCard";
-import DetailCard from './DetailCard';
-import { AboutData, Details, Projects } from "../types/details";
+// import image from '../assets/profileImage.png';
+import { Details } from "../types/details";
 import { aboutData } from '../details';
-import CV from '../assets/CV.pdf';
 import { ActivePage } from '../types/Other';
 import Contact from './Contact';
+import AboutSection from './AboutSection';
 
 
 // Lazy load components that are not immediately necessary
 const MyDetails = lazy(() => import('./MyDetails'));
+const ProjectsSection = lazy(() => import('./ProjectSection'));
 
-const Home = ({ display }: { display: ActivePage }) => {
+interface HomeProps {
+    display: ActivePage;
+    setDisplay: (value: ActivePage) => void;
+}
+
+const Home = ({ display,setDisplay }: HomeProps) => {
 
     return (
         <main>
             {display === 'home' ? <Cover image={image} details={details} /> : null}
             {display === 'home' || display === 'projects' ? <ProjectsSection projects={projects} /> : null}
-            {display === 'home' || display === 'contact' || display === 'about' ? <AboutSection aboutData={aboutData} /> : null}
+            {display === 'home' || display === 'contact' || display === 'about' ? <AboutSection aboutData={aboutData} setDisplay={setDisplay}/> : null}
             {display === 'contact' ? <Contact /> : null}
         </main>
     )
@@ -60,38 +65,8 @@ const Cover = ({image, details }: { image:string,   details: Details }) => (
     </section>
 );
 
-// Separate the Projects section into a dedicated component
-const ProjectsSection = ({ projects }: { projects: Projects }) => (
-    <section id="projects">
-        <h2>Projects</h2>
-        {projects.map((project, index) => (
-            <ProjectCard
-                key={index}
-                name={project.name}
-                rl={index % 2}
-                description={project.description}
-                image={project.image}
-                url={project.url}
-            />
-        ))}
-    </section>
-);
 
 
-// About Section Component
-const AboutSection = ({ aboutData }: { aboutData: AboutData }) => (
-    <section id="about">
-        <DetailCard
-            title={aboutData.title}
-            subHeadline={aboutData.subHeadline}
-            buttonTitle1="Resume"
-            buttonUrl1={CV ? CV : aboutData.resumeUrl as string}
-        />
-        <figure className="about-figure">
-            <img src={image} alt={`${aboutData.name} about`} />
-        </figure>
-    </section>
-);
 
 export default Home;
 

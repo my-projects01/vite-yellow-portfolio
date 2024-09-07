@@ -10,6 +10,8 @@ export interface DetailCardProps {
     buttonTitle2?: string | null;         // Title for the second button (optional)
     buttonUrl2?: string | null;           // URL for the second button (optional)
     variant?: "primary" | "secondary";    // Variant type for styling the card (optional)
+    onClick1?: () => void;                 // Click event handler (optional)
+    onClick2?: () => void;                 // Click event handler (optional)
 }
 
 export interface ButtonProps {

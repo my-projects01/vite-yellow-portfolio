@@ -10,6 +10,8 @@ const DetailCard = ({
     buttonUrl1,
     buttonTitle2,
     buttonUrl2,
+    onClick1,
+    onClick2,
     variant = 'primary'  // for selecting the card variant
 }: DetailCardProps
 ) => {
@@ -24,8 +26,8 @@ const DetailCard = ({
                     {subHeadline}
                 </div>
                 <div className="buttons">
-                    {buttonTitle1 && <Button variant='primary' url={buttonUrl1} title={buttonTitle1} />}
-                    {buttonTitle2 && <Button variant='secondary' url={buttonUrl2} title={buttonTitle2} />}
+                    {buttonTitle1 && <Button variant='primary' url={buttonUrl1} title={buttonTitle1} onClick={onClick1}/>}
+                    {buttonTitle2 && <Button variant='secondary' url={buttonUrl2} title={buttonTitle2} onClick={onClick2}/>}
                 </div>
             </div>
         </div>
